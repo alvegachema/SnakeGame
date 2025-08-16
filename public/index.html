@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slither.io Clone</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; overflow: hidden; background: #222;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            user-select: none;
+        }
+        #nicknameInput {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        input, button {
+            font-size: 18px;
+            margin: 10px 5px;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        input {
+            background: #444;
+            color: white;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        canvas {
+            display: none;
+            background: #222;
+            position: absolute;
+            top: 0; left: 0;
+        }
+
+        /* Styles for color selection */
+        #colorPicker {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        .color-swatch.selected {
+            border-color: #eee;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="nicknameInput">
+        <input id="nickname" placeholder="Enter nickname" />
+        <div id="colorPicker"></div>
+        <br />
+        <button id="startBtn">Start Game</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
